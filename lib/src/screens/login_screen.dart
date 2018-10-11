@@ -54,16 +54,17 @@ class LoginScreen extends StatelessWidget {
       },
     );
   }
-}
 
-Widget submitButton(Bloc bloc) {
-  return StreamBuilder(
+  Widget submitButton(Bloc bloc) {
+    return StreamBuilder(
       stream: bloc.submitValid,
       builder: (context, snapshot) {
         return RaisedButton(
           child: Text('Login'),
           color: Colors.blue,
-          onPressed: snapshot.hasData ? bloc.submit() : null,
+          onPressed: snapshot.hasData ? bloc.submit : null,
         );
-      });
+      },
+    );
+  }
 }
